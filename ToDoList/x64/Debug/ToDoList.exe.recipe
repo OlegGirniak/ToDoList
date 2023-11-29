@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>F:\OOPProjects\ToDoList\x64\Debug\ToDoList.exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls>
+    <SatelliteDll>
+      <FullPath>F:\OOPProjects\ToDoList\ToDoList\x64\Debug\aa\ToDoList.resources.dll</FullPath>
+    </SatelliteDll>
+  </SatelliteDlls>
+  <NonRecipeFileRefs />
+</Project>
