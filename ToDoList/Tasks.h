@@ -1,5 +1,6 @@
 #pragma once
 #include "Task.h"
+#include "User.h"
 
 namespace ToDoList {
 
@@ -25,9 +26,9 @@ namespace ToDoList {
 			//
 		}
 
-		Tasks(List<Task^>^ taskList)
+		Tasks(User^ user)
 		{
-			this->taskList = taskList;
+			this->taskList = user->GetTasks();
 			InitializeComponent();
 
 			for each (Task ^ task in taskList)
@@ -67,6 +68,8 @@ namespace ToDoList {
 
 	private: System::Windows::Forms::TextBox^ DescriptionTaskList;
 	private: System::Windows::Forms::Button^ ModifyTaskDescription;
+	private: System::Windows::Forms::Button^ ExitButton;
+
 
 
 
@@ -98,6 +101,7 @@ namespace ToDoList {
 			this->DeleteTaskButton = (gcnew System::Windows::Forms::Button());
 			this->ClearDescription = (gcnew System::Windows::Forms::Button());
 			this->ModifyTaskDescription = (gcnew System::Windows::Forms::Button());
+			this->ExitButton = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->SuspendLayout();
@@ -145,7 +149,7 @@ namespace ToDoList {
 			this->groupBox2->ForeColor = System::Drawing::SystemColors::ButtonFace;
 			this->groupBox2->Location = System::Drawing::Point(268, 12);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(293, 405);
+			this->groupBox2->Size = System::Drawing::Size(293, 345);
 			this->groupBox2->TabIndex = 1;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"description";
@@ -157,7 +161,7 @@ namespace ToDoList {
 			this->DescriptionTaskList->Location = System::Drawing::Point(6, 26);
 			this->DescriptionTaskList->Multiline = true;
 			this->DescriptionTaskList->Name = L"DescriptionTaskList";
-			this->DescriptionTaskList->Size = System::Drawing::Size(281, 373);
+			this->DescriptionTaskList->Size = System::Drawing::Size(281, 313);
 			this->DescriptionTaskList->TabIndex = 2;
 			this->DescriptionTaskList->MouseCaptureChanged += gcnew System::EventHandler(this, &Tasks::DescriptionTaskList_MouseCaptureChanged);
 			// 
@@ -201,9 +205,9 @@ namespace ToDoList {
 			this->ClearDescription->Font = (gcnew System::Drawing::Font(L"Showcard Gothic", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->ClearDescription->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->ClearDescription->Location = System::Drawing::Point(417, 423);
+			this->ClearDescription->Location = System::Drawing::Point(411, 357);
 			this->ClearDescription->Name = L"ClearDescription";
-			this->ClearDescription->Size = System::Drawing::Size(138, 38);
+			this->ClearDescription->Size = System::Drawing::Size(144, 38);
 			this->ClearDescription->TabIndex = 8;
 			this->ClearDescription->Text = L"Clear";
 			this->ClearDescription->UseVisualStyleBackColor = false;
@@ -217,14 +221,29 @@ namespace ToDoList {
 			this->ModifyTaskDescription->Font = (gcnew System::Drawing::Font(L"Showcard Gothic", 15.75F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->ModifyTaskDescription->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->ModifyTaskDescription->Location = System::Drawing::Point(274, 423);
+			this->ModifyTaskDescription->Location = System::Drawing::Point(268, 357);
 			this->ModifyTaskDescription->Name = L"ModifyTaskDescription";
 			this->ModifyTaskDescription->Size = System::Drawing::Size(137, 38);
 			this->ModifyTaskDescription->TabIndex = 9;
 			this->ModifyTaskDescription->Text = L"modify";
 			this->ModifyTaskDescription->UseVisualStyleBackColor = false;
 			this->ModifyTaskDescription->Click += gcnew System::EventHandler(this, &Tasks::ModifyTaskDescription_Click);
-
+			// 
+			// ExitButton
+			// 
+			this->ExitButton->BackColor = System::Drawing::Color::DarkGray;
+			this->ExitButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->ExitButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->ExitButton->Font = (gcnew System::Drawing::Font(L"Showcard Gothic", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->ExitButton->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->ExitButton->Location = System::Drawing::Point(428, 423);
+			this->ExitButton->Name = L"ExitButton";
+			this->ExitButton->Size = System::Drawing::Size(127, 38);
+			this->ExitButton->TabIndex = 10;
+			this->ExitButton->Text = L"Exit";
+			this->ExitButton->UseVisualStyleBackColor = false;
+			this->ExitButton->Click += gcnew System::EventHandler(this, &Tasks::ExitButton_Click);
 			// 
 			// Tasks
 			// 
@@ -233,6 +252,7 @@ namespace ToDoList {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(253)), static_cast<System::Int32>(static_cast<System::Byte>(187)),
 				static_cast<System::Int32>(static_cast<System::Byte>(152)));
 			this->ClientSize = System::Drawing::Size(576, 483);
+			this->Controls->Add(this->ExitButton);
 			this->Controls->Add(this->ModifyTaskDescription);
 			this->Controls->Add(this->ClearDescription);
 			this->Controls->Add(this->DeleteTaskButton);
@@ -315,5 +335,10 @@ namespace ToDoList {
 		}
 	}
 
+
+	private: System::Void ExitButton_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		Application::Exit();
+	}
 };
 }

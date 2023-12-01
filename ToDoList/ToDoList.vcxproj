@@ -125,6 +125,7 @@
     <ClCompile Include="SignUp.cpp" />
     <ClCompile Include="Task.cpp" />
     <ClCompile Include="Tasks.cpp" />
+    <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SignIn.h">
@@ -137,6 +138,7 @@
     <ClInclude Include="Tasks.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="User.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="SignIn.resx">
