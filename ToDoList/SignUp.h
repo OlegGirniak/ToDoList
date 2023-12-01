@@ -224,9 +224,9 @@ namespace ToDoList {
 
 	private: System::Void SignUpButton_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
-		if (UserNameTextbox->Text->Length >= 1)
+		if (UserNameTextbox->Text->Length >= 8)
 		{
-			if (NewPasswordTextbox_1->Text->Length >= 1)
+			if (NewPasswordTextbox_1->Text->Length >= 8)
 			{
 				bool ifPasswordIsReserved = false;
 

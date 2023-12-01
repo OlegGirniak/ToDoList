@@ -154,8 +154,10 @@ namespace ToDoList {
 			this->PasswordTextbox->Location = System::Drawing::Point(17, 241);
 			this->PasswordTextbox->Multiline = true;
 			this->PasswordTextbox->Name = L"PasswordTextbox";
+			this->PasswordTextbox->PasswordChar = '*';
 			this->PasswordTextbox->Size = System::Drawing::Size(254, 26);
 			this->PasswordTextbox->TabIndex = 4;
+			this->PasswordTextbox->UseSystemPasswordChar = true;
 			// 
 			// SignInButtom
 			// 
